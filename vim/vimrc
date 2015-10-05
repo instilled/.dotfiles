@@ -1,0 +1,225 @@
+" Vundle up
+set nocompatible
+filetype off 
+
+set rtp+=~/.vim/bundle/Vundle.vim
+
+call vundle#begin('~/.vim/bundle')
+
+Plugin 'VundleVim/Vundle.vim'
+
+" Misc
+Plugin 'groenewege/vim-less'
+Plugin 'szw/vim-tags'
+Plugin 'tpope/vim-speeddating'
+Plugin 'jeetsukumaran/vim-buffergator'
+Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'tfnico/vim-gradle'
+Plugin 'rizzatti/dash.vim'
+Plugin 'kshenoy/vim-signature'
+Plugin 'unblevable/quick-scope'
+Plugin 'marijnh/tern_for_vim'
+Plugin 'instilled/nerdcommenter'
+Plugin 'tmux-plugins/tpm'
+Plugin 'bling/vim-airline'
+Plugin 'tpope/vim-dispatch'
+Plugin 'tpope/vim-projectionist'
+Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tomtom/tlib_vim'
+
+" Snippets
+Plugin 'instilled/vim-snippets'
+Plugin 'vim-scripts/UltiSnips'
+Plugin 'SirVer/ultisnips'
+
+" clojure related
+Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'guns/vim-clojure-highlight'
+Plugin 'guns/vim-clojure-static'
+Plugin 'guns/vim-sexp'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-fireplace'
+Plugin 'tpope/vim-sexp-mappings-for-regular-people'
+Plugin 'tpope/vim-sensible'
+
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'majutsushi/tagbar'
+Plugin 'godlygeek/tabular'
+
+" Web
+Plugin 'elzr/vim-json'
+Plugin 'lukaszb/vim-web-indent'
+Plugin 'othree/html5-syntax.vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'rking/ag.vim'
+Plugin 'Valloric/YouCompleteMe'
+
+call vundle#end()
+
+filetype plugin indent on  
+
+
+" Some sensitive defaults
+filetype plugin indent on
+set autoindent
+set clipboard=unnamed        " clipboard sharing with host
+set cindent
+set encoding=utf-8
+set expandtab
+set list
+set listchars=tab:▸\ ,trail:▫
+set ignorecase
+set incsearch
+set mouse=a
+set shiftwidth=2
+set smartindent
+set softtabstop=2
+set smartcase
+set tabstop=8
+set hlsearch
+set cursorline
+set wildignore+=*/target/*,*/dist/*,*/bower_components/*,*.swp,*/node_modules/*
+set number
+set relativenumber
+hi Visual term=reverse cterm=reverse guibg=LightGrey
+
+" Local dirs
+set backupdir=~/.vim/backups
+set directory=~/.vim/swaps
+if exists('&undodir')
+  set undodir=~/.vim/undos
+endif
+
+" Filetype mappings
+" Force markdown
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+autocmd BufNewFile,BufRead *.boot set filetype=clojure
+
+" Solarized color theme (dark)
+" Credits: https://github.com/altercation/solarized
+" Fixes for iTerm & osx
+" http://stackoverflow.com/questions/7278267/incorrect-colors-with-vim-in-iterm2-using-solarized
+syntax on
+set background=dark
+let g:solarized_termtrans = 1
+let g:solarized_termcolors=256
+colorscheme solarized
+"let g:solarized_visibility = "high"
+"let g:solarized_contrast = "high"
+
+" Airline.vim
+let g:airline_powerline_fonts = 1
+let g:Powerline_symbols = 'fancy'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#syntastic#enabled = 1
+set laststatus=2
+set noshowmode " Don't show the current mode (airline.vim takes care of that)
+
+" better-whitespace.vim
+let g:better_whitespace_enabled = 1
+let g:strip_whitespace_on_save = 1
+
+" Eclim.vim
+let g:EclimCompletionMethod = 'omnifunc'
+
+" NERDTree
+"autocmd BufEnter * if &modifiable | NERDTreeFind | wincmd p | endif
+
+" Dash.vim
+let g:dash_map = {
+    \ 'clojure' : 'clojure'
+    \ }
+
+" Rainbow Parens
+let g:rbpt_colorpairs = [
+    \ ['brown',       'RoyalBlue3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['blue',        'RoyalBlue3'],
+    \ ['green',      'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['red',         'firebrick3'],
+    \ ]
+
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
+" vim-sexp
+let g:sexp_mappings = {
+      \ 'sexp_move_to_prev_element_head': '∫',
+      \ 'sexp_move_to_next_element_head': '∑',
+      \ 'sexp_move_to_prev_element_tail': 'g€',
+      \ 'sexp_move_to_next_element_tail': '€',
+      \ 'sexp_swap_list_backward':        '∆',
+      \ 'sexp_swap_list_forward':         'º',
+      \ 'sexp_swap_element_backward':     'ª',
+      \ 'sexp_swap_element_forward':      '¬',
+      \ 'sexp_emit_head_element':         '˜',
+      \ 'sexp_emit_tail_element':         '¯',
+      \ 'sexp_capture_prev_element':      '·',
+      \ 'sexp_capture_next_element':      'ˆ',
+      \ }
+
+" Rebind ultisnippets completion key
+" as it interferes with youcompleteme
+let g:UltiSnipsExpandTrigger="<c-k>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" Cljfmt
+let g:clj_fmt_autosave = 0
+
+" CtrlP
+"let g:ctrlp_user_command = {
+"      \ 'types': {
+"      \   1: ['.ctrlpignore', 'find %s -type f | grep -v "`cat .ctrlpignore`"'],
+"      \ },
+"      \ 'fallback': 'find %s -type f'
+"      \ }
+
+let g:ctrlp_custom_ignore = {
+      \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+      \ 'file': '\v\.(exe|so|dll)$',
+      \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
+      \ }
+
+" Keyboard shortcuts
+" Use custom jeader key
+let maplocalleader = "`"
+let mapleader = ","
+inoremap jj <esc>
+" Search and replace word under cursor (,*)
+nnoremap <leader>* :%s/\<<C-r><C-w>\>//<Left>
+" indent a buffer
+nnoremap <leader>= gg=G<CR>
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
+nnoremap <leader>s :SignatureToggle<cr>
+nnoremap <leader>l :Align
+" nnoremap <leader>p :CtrlP<CR>
+nnoremap <leader>p :CtrlPClearCache<CR>:CtrlP<CR>
+nnoremap <leader>b :CtrlPBuffer<CR>
+nnoremap <leader>t :CtrlPTag<CR>
+nnoremap <leader>f :NERDTreeFind<CR>
+"nnoremap <leader>d :NERDTreeToggle<CR>
+"nnoremap <leader>t :TagbarToggle<CR>
+vnoremap <leader>ac :Tabularize /:as\\|:refer<CR>
+nmap <silent> <leader>d <Plug>DashSearch
+
+"autocmd BufWritePre <buffer> call StripWhitespace()
+

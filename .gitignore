@@ -1,0 +1,5 @@
+.netrwhist
+tags
+*.gen
+mc/hotlist*
+vim/bundle
