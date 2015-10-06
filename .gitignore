@@ -3,3 +3,6 @@ tags
 *.gen
 mc/hotlist*
 vim/bundle
+vim/backups
+vim/undos
+vim/swaps

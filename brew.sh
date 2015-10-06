@@ -45,14 +45,8 @@ casks=(
   nvalt
   skype
   mendeley-desktop
-  little-snitch
-  openoffice
-  firefox
-  google-chrome
-  growlnotify
   telegram
   eclipse-java
-  slate
   virtualbox
   vagrant
 )
