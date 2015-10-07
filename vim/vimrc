@@ -221,5 +221,5 @@ nnoremap <leader>f :NERDTreeFind<CR>
 vnoremap <leader>ac :Tabularize /:as\\|:refer<CR>
 nmap <silent> <leader>d <Plug>DashSearch
 
-"autocmd BufWritePre <buffer> call StripWhitespace()
+autocmd BufWritePre <buffer> call StripWhitespace()
 
