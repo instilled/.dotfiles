@@ -14,5 +14,5 @@
 
 [alias]
   # http://oli.jp/2012/git-powerup/
-  l = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
-  ll = log --stat --abbrev-commit
+  l = log --all --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
+  ll = log --all --stat --abbrev-commit
