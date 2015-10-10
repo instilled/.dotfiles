@@ -30,6 +30,8 @@ formulae=(
   the_silver_searcher
   gradle
   grc
+  leiningen
+  boot-clj
 )
 
 # More casks
