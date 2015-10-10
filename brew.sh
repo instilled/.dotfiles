@@ -47,6 +47,7 @@ casks=(
   mendeley-desktop
   telegram
   eclipse-java
+  virtualbox
   vagrant
 )
 
