@@ -10,6 +10,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Misc
 Plugin 'groenewege/vim-less'
+Plugin 'nelstrom/vim-qargs'
 Plugin 'szw/vim-tags'
 Plugin 'tpope/vim-speeddating'
 Plugin 'jeetsukumaran/vim-buffergator'
