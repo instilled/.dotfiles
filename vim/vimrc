@@ -21,7 +21,7 @@ Plugin 'rizzatti/dash.vim'
 Plugin 'kshenoy/vim-signature'
 Plugin 'unblevable/quick-scope'
 Plugin 'marijnh/tern_for_vim'
-Plugin 'instilled/nerdcommenter'
+Plugin 'scrooloose/nerdcommenter'
 Plugin 'tmux-plugins/tpm'
 Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-dispatch'
@@ -32,7 +32,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tomtom/tlib_vim'
 
 " Snippets
-Plugin 'instilled/vim-snippets'
+Plugin 'honza/vim-snippets'
 Plugin 'vim-scripts/UltiSnips'
 Plugin 'SirVer/ultisnips'
 
