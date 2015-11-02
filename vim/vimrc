@@ -33,7 +33,6 @@ Plugin 'tomtom/tlib_vim'
 
 " Snippets
 Plugin 'honza/vim-snippets'
-Plugin 'vim-scripts/UltiSnips'
 Plugin 'SirVer/ultisnips'
 
 " clojure related
