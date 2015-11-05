@@ -16,3 +16,4 @@
   # http://oli.jp/2012/git-powerup/
   l = log --all --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
   ll = log --all --stat --abbrev-commit
+  p = log --all -p

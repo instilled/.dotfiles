@@ -30,6 +30,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tomtom/tlib_vim'
+Plugin 'tpope/vim-obsession'
 
 " Snippets
 Plugin 'honza/vim-snippets'

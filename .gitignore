@@ -6,3 +6,5 @@ vim/bundle
 vim/backups
 vim/undos
 vim/swaps
+tmux/plugins
+!tmux/plugins/tpm
