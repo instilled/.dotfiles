@@ -7,4 +7,5 @@ vim/backups
 vim/undos
 vim/swaps
 tmux/plugins
+tmux/resurrect
 !tmux/plugins/tpm
