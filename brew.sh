@@ -1,34 +1,54 @@
 #!/bin/bash -e
 
-# Credits: https://github.com/justincampbell/.dotfiles
-which -s brew && brew update
-which -s brew || ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew -h &> /dev/null || ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew update
+
+# Fix manpath
+# MANPATH_MAP /usr/local/opt/coreutils/libexec/gnubin /usr/local/opt/coreutils/libexec/gnuman
 
 if [ -z "$1" -a ! "$(brew doctor &> /dev/null)" ]; then
   echo "\`brew doctor\` failed. Please resolve issues before continuing."
   exit 1
 fi
 
-brew tap homebrew/binary
-brew tap justincampbell/formulae
-brew tap thoughtbot/formulae
+taps=(
+  homebrew/binary
+  justincampbell/formulae
+  thoughtbot/formulae
+  homebrew/dupes
+)
+
+for tap in "${taps[@]}"; do
+  brew tap $tap
+done
 
 formulae=(
-  caskroom/cask/brew-cask
+  coreutils
+  binutils
+  "gnu-sed --with-default-names"
+  "gnu-tar --with-default-names"
+  "gnu-which --with-default-names"
+  "grep --with-default-names"
+  "findutils --with-default-names"
+  gpg
+  less
   git
+  openssh
+  wget
+  unzip
+  zsh
+  caskroom/cask/brew-cask
+  emacs
   boot2docker
   reattach-to-user-namespace
   cmake
   ctags
   tmux
-  wget
   watch
   maven
   "macvim --env-std --with-override-system-vim"
-  coreutils
   mc
   the_silver_searcher
-  gradle
   grc
   leiningen
   boot-clj
@@ -38,17 +58,10 @@ formulae=(
 # arq
 
 casks=(
-  1password
-  dropbox
-  flux
   iterm2
-  launchrocket
   java
   nvalt
   skype
-  mendeley-desktop
-  telegram
-  eclipse-java
   virtualbox
   vagrant
 )
