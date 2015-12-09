@@ -1,16 +1,14 @@
 #!/bin/zsh
 
-msource () {
-    for file ($DOTFILES_HOME/zsh/$1/*.zsh(N)); do
-        source $file
-    done
-}
-
+# Load functions first
 fpath=($DOTFILES_HOME/zsh/functions $fpath)
 
-msource "default"
-msource "custom"
-msource "custom/$(uname)"
-msource "custom/$(hostname -s)"
-msource "private"
+# Things we want to load in order
+typeset -a load_order
+load_order=("default" "$(uname)" "$(hostname -s)" "custom")
 
+for lo in $load_order; do
+  for file ($DOTFILES_HOME/zsh/source/$lo/*.zsh(N)); do
+    source "$file"
+  done
+done

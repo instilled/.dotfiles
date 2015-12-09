@@ -4,17 +4,17 @@ export DOTFILES_HOME="$HOME/.dotfiles"
 export DOTFILES_VIM="$DOTFILES_HOME/vim"
 export DOTFILES_ZSH="$DOTFILES_HOME/zsh"
 
-msource () {
-    for file ($DOTFILES_HOME/zsh/$1/*.env(N)); do
-        source $file
-    done
-}
+loadenv () {
+    }
 
-msource "default"
-msource "custom"
-msource "custom/$(uname)"
-msource "custom/$(hostname -s)"
-msource "private"
+# Things we want to load in order
+typeset -a load_order
+load_order=("default" "$(uname)" "$(hostname -s)" "custom")
+
+for lo in $load_order; do
+  for file ($DOTFILES_HOME/zsh/source/$1/*.env(N)); do
+    source $file
+  done
+done
 
 typeset -U path
-
