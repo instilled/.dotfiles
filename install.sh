@@ -17,11 +17,10 @@ if [ ! -d "/Applications/Xcode.app" ]; then
 fi
 
 echo "Hi there. I'm your dotfiles and will install myself at ~/.dotfiles."
-echo "To run smoothly I require 'reattach-to-user-namespace' and 'macvim'"
-echo "be installed on your system. I'll do that for you and will succeed"
-echo "if 'brew' and 'xcode' are available. Finally I'll create a few "
-echo "symlinks in your home directory. Existing files will of course"
-echo "be backed up for you."
+echo "This will install a bunch of tools such as GNU command line tools and"
+echo "other nice stuff provided by brew (check 'brew.sh' for a full list)."
+echo "Finally I'll create a few symlinks in your home directory. Existing"
+echo "files will of course be backed up for you."
 echo
 
 while true; do
@@ -37,7 +36,6 @@ done
 echo "Cloning .dotfiles and initializing submodules..."
 git clone $_repo "$dothome" &> /dev/null
 (cd "$dothome" && git submodule update --init --recursive)
-#(cd "$dothome" && git submodule update)
 
 echo "Installing brew"
 $dothome/brew.sh
