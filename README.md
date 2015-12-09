@@ -9,10 +9,10 @@ My personal dotfiles.
 * iTerm with [solarized theme](https://github.com/altercation/solarized/tree/master/iterm2-colors-solarized)
 
 # Installation
-You can install the dotfiles by typing 
+You can install the dotfiles by typing
 
     source <(curl https://raw.githubusercontent.com/instilled/.dotfiles/master/install.sh)
-    
+
 at your shell. This should install itself and all its dependencies. You should now configure
 iTerms to use the correct color schema and font. This is a per profile setting.
 
@@ -29,3 +29,7 @@ iTerms to use the correct color schema and font. This is a per profile setting.
   - [ultisnips](https://github.com/SirVer/ultisnips)
   - [autocomplete](http://www.vim.org/scripts/script.php?script_id=1879
 https://github.com/powerline/fonts)
+
+# License
+
+WTFPL, see [www.wtfpl.net](http://www.wtfpl.net) and/or `LICENSE`.
