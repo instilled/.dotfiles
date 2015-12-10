@@ -5,10 +5,10 @@ fpath=($DOTFILES_HOME/zsh/functions $fpath)
 
 # Things we want to load in order
 typeset -a load_order
-load_order=("default" "$(uname)" "$(hostname -s)" "custom")
+load_order=("default" "arch/$(uname)" "host/$(hostname -s)" "custom")
 
 for lo in $load_order; do
   for file ($DOTFILES_HOME/zsh/source/$lo/*.zsh(N)); do
-    source "$file"
+    source $file
   done
 done
