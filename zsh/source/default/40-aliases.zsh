@@ -56,6 +56,12 @@ alias tms=' tm -t'
 alias v='vagrant'
 alias vx='vagrant-exec'
 
+alias sec='keybase'
+# TODO: fb: add aliases for
+# * sign
+# * encrypt
+#alias secs'keybase pgp'
+
 alias y='pbcopy <'
 
 function vim_pathogen() {

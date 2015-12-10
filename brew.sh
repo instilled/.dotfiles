@@ -51,6 +51,7 @@ formulae=(
   the_silver_searcher
   grc
   leiningen
+  keybase
   boot-clj
 )
 
@@ -74,6 +75,6 @@ done
 
 brew linkapps
 
-for cask in "${casks[@]}"; do
-  brew cask install $cask
-done
+#for cask in "${casks[@]}"; do
+#  brew cask install $cask
+#done
