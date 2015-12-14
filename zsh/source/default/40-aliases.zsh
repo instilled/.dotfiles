@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 ###>> Aliases
-alias e='$EDITOR'
+alias e='emacsclient --no-wait --socket emacs-server '
 
 alias f='grep -r'
 
@@ -17,7 +17,6 @@ alias gll='g ll'
 alias gs='g status'
 alias ga='g add '
 alias gc='gitcommitwrapper'
-alias gcn='g commit -m'
 alias gp='g push'
 alias gpo='g push origin'
 alias gu='g fetch'
@@ -37,7 +36,7 @@ alias mc='MC_SKIN="$HOME/.config/mc/nicedark.ini" mc'
 
 alias p='print -l'
 alias pp='p $path'
-alias psa="ps aux | grep "
+alias ps="ps aux | grep "
 
 alias sudo='sudo '
 # Assume ~/.ssh/config has a Host definition
@@ -45,27 +44,22 @@ alias sudo='sudo '
 alias ssht='ssh -f -N '
 
 # tmux
-alias t='tmux'
+alias t='tmux '
 alias ts='t new -s '
 alias tl='t ls'
 alias ta='t attach -t '
 alias td='t detach'
 alias tm='t move-window'
-alias tms=' tm -t'
+alias tms='tm -t'
 
 alias v='vagrant'
 alias vx='vagrant-exec'
 
-alias sec='keybase'
+alias sk='keybase'
+alias s='gpg'
 # TODO: fb: add aliases for
 # * sign
 # * encrypt
 #alias secs'keybase pgp'
 
 alias y='pbcopy <'
-
-function vim_pathogen() {
-    echo "Downloading to '$DOTFILES_VIM/bundle'"
-    (cd $DOTFILES_VIM/bundle && git clone $1)
-}
-alias vpat='vim_pathogen'

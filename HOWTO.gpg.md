@@ -21,6 +21,10 @@ your primary public key.
 In case your private key gets compromised you shuold
 immediately publish the revocation certificate.
 
+You may want to publish your public key to a keyserver
+
+    $ gpg --keyserver search.keyserver.net --send-key you@example.com
+
 # Resources
 
 * https://gist.github.com/chrisroos/1205934
