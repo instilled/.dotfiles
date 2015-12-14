@@ -8,6 +8,7 @@ bindkey -v
 bindkey -M viins 'jj' vi-cmd-mode
 
 bindkey "^r" history-incremental-search-backward
+bindkey "^n" history-incremental-search-forward
 
 autoload -Uz select-word-style
 select-word-style normal

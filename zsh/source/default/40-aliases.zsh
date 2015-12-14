@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 ###>> Aliases
-alias e='emacsclient --no-wait --socket emacs-server '
+alias e='emacsclient -a emacs --no-wait --socket emacs-server '
 
 alias f='grep -r'
 
