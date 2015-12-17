@@ -46,7 +46,7 @@ alias ssht='ssh -f -N '
 # tmux
 alias t='tmux '
 alias ts='t new -s '
-alias tl='t ls'
+alias tl='t list-sessions'
 alias ta='t attach -t '
 alias td='t detach'
 alias tm='t move-window'
