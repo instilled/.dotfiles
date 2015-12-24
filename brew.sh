@@ -33,6 +33,7 @@ formulae=(
   gpg
   less
   git
+  libsass
   openssh
   wget
   unzip
