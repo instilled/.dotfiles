@@ -1,5 +1,6 @@
 #!/bin/bash -e
 
+# brew
 brew -h &> /dev/null || ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew update
 
@@ -54,11 +55,17 @@ formulae=(
   leiningen
   keybase
   boot-clj
+  npm
 )
+
+brew tap | grep "cask" > /dev/null || brew tap caskroom/homebrew-cask
+
+for formula in "${formulae[@]}"; do
+  brew install $formula || brew upgrade $formula
+done
 
 # More casks
 # arq
-
 casks=(
   iterm2
   java
@@ -68,14 +75,21 @@ casks=(
   vagrant
 )
 
-brew tap | grep "cask" > /dev/null || brew tap caskroom/homebrew-cask
-
-for formula in "${formulae[@]}"; do
-  brew install $formula || brew upgrade $formula
-done
-
-brew linkapps
-
 #for cask in "${casks[@]}"; do
 #  brew cask install $cask
 #done
+
+brew linkapps
+
+# npm
+
+global_npm_packages=(
+  postcss-cli
+  autoprefixer
+)
+
+for p in "${global_npm_packages[@]}"; do
+  npm install -g $p || npm update -g $p
+done
+
+
