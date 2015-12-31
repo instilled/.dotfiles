@@ -86,6 +86,7 @@ brew linkapps
 global_npm_packages=(
   postcss-cli
   autoprefixer
+  phantomjs
 )
 
 for p in "${global_npm_packages[@]}"; do
