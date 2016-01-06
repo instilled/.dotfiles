@@ -2,6 +2,8 @@
 
 ###>> Aliases
 alias e='emacsclient -a emacs --no-wait --socket emacs-server '
+alias em='emacs -nw '
+
 
 alias f='grep -r'
 
