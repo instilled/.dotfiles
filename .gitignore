@@ -9,3 +9,4 @@ vim/swaps
 tmux/plugins
 tmux/resurrect
 !tmux/plugins/tpm
+mc/panels.ini
