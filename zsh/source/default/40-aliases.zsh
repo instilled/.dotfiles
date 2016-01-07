@@ -1,9 +1,9 @@
 #!/bin/zsh
 
 ###>> Aliases
-alias e='emacs -nw '
+alias emacs='emacs -nw'
+alias e="emacs"
 alias ec='emacsclient -a emacs --no-wait --socket emacs-server '
-
 
 alias f='grep -r'
 
@@ -34,7 +34,7 @@ alias l='ls -lh'
 alias ll='ls -lha'
 
 alias mk='mkdir -p'
-alias mc='MC_SKIN="$HOME/.config/mc/nicedark.ini" mc'
+alias mc='MC_SKIN="$HOME/.config/mc/nicedark.ini" EDITOR="vim" mc'
 
 alias p='print -l'
 alias pp='p $path'

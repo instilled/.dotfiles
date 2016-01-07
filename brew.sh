@@ -40,7 +40,7 @@ formulae=(
   unzip
   zsh
   caskroom/cask/brew-cask
-  emacs
+  "emacs --with-cocoa --srgb"
   boot2docker
   reattach-to-user-namespace
   cmake
