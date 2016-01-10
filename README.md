@@ -32,4 +32,7 @@ https://github.com/powerline/fonts)
 
 # License
 
-WTFPL, see [www.wtfpl.net](http://www.wtfpl.net) and/or `LICENSE`.
+licensed under the MIT License:
+
+    see LICENSE or http://opensource.org/licenses/mit-license.html
+
