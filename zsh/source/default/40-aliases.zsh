@@ -8,6 +8,10 @@ alias f='grep -r'
 
 alias diff='grc diff'
 
+alias ..='cd ..'
+alias ...='.. && cd ..'
+alias ....='... && cd ..'
+
 # Git related aliases
 # See http://nuclearsquid.com/writings/git-tricks-tips-workflows/
 
