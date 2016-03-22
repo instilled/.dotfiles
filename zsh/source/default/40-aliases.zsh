@@ -8,9 +8,12 @@ alias f='grep -r'
 
 alias diff='grc diff'
 
+# some heavy used change directory aliases
 alias ..='cd ..'
 alias ...='.. && cd ..'
 alias ....='... && cd ..'
+alias h='cd ~/'
+alias dl='cd ~/Downloads'
 
 # Git related aliases
 # See http://nuclearsquid.com/writings/git-tricks-tips-workflows/
