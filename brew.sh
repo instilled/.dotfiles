@@ -41,21 +41,16 @@ formulae=(
   zsh
   caskroom/cask/brew-cask
   "emacs --with-cocoa --srgb"
-  boot2docker
   reattach-to-user-namespace
   cmake
   ctags
   tmux
   watch
   maven
-  "macvim --env-std --with-override-system-vim"
   mc
   the_silver_searcher
   grc
-  leiningen
   keybase
-  boot-clj
-  npm
 )
 
 brew tap | grep "cask" > /dev/null || brew tap caskroom/homebrew-cask
@@ -92,5 +87,3 @@ global_npm_packages=(
 for p in "${global_npm_packages[@]}"; do
   npm install -g $p || npm update -g $p
 done
-
-
