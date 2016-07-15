@@ -55,8 +55,11 @@ alias gsa='g submodule add'
 #--------------------
 # Docker related aliases
 alias d='docker'
-alias ds='d ps'
+alias db='docker build'
+alias di='docker images'
+alias dps='d ps'
 alias dk='d kill'
+alias drm='d rm'
 
 #--------------------
 # Vagrant
