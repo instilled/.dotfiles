@@ -34,6 +34,7 @@ formulae=(
   gpg
   less
   git
+  git-lfs
   libsass
   openssh
   wget
@@ -87,3 +88,5 @@ global_npm_packages=(
 for p in "${global_npm_packages[@]}"; do
   npm install -g $p || npm update -g $p
 done
+
+git lfs install
