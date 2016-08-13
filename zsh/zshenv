@@ -15,4 +15,7 @@ for lo in $load_order; do
   done
 done
 
+[ -f "${HOME}/.zshenv.priv" ] \
+    && source "${HOME}/.zshenv.priv"
+
 typeset -U path

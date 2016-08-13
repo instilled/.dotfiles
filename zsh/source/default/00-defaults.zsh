@@ -1,7 +1,8 @@
 #!/bin/zsh
 
-autoload -U vagrant-exec
-autoload -U gitcommitwrapper
+autoload -Uz vagrant-exec
+autoload -Uz gitcommitwrapper
+autoload -Uz gitident
 autoload -Uz zutil
 zstyle ':completion:*' completer _expand _complete _ignored _approximate
 

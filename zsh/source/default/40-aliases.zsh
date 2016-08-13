@@ -34,7 +34,8 @@ alias ec='emacsclient -a emacs --no-wait --socket emacs-server '
 #--------------------
 # Git
 # See http://nuclearsquid.com/writings/git-tricks-tips-workflows/
-alias g='git'
+
+alias g='gitident git'
 #alias gl='g log --graph --decorate --all --oneline'
 alias gl='g l'
 alias gll='g ll'

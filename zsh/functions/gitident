@@ -1,0 +1,64 @@
+###########################################################################
+#                                                                         #
+#   Usage:                                                                #
+#   Automagically set/expose correct commit user name or email            #
+#   for the current git repository by echoing GIT_AUTHOR_{NAME,EMAIL}.    #
+#   Does this matching the remote origin as in                            #
+#   `git config --local remote.origin.url` angainst a set of              #
+#   predefined identifies read from the current                           #
+#   scope `declare -p` available to the script, e.g. declare them bevore  #
+#   invoking this script.                                                 #
+#                                                                         #
+#   If, for example, you may want to commit all github.com/instilled/.*   #
+#   repos with git author Fabio, define the following vars before         #
+#   invoking gitident.sh:                                                 #
+#                                                                         #
+#    git_ident_instilled_name="Fabio"                                     #
+#    git_ident_instilled_email="me@..."                                   #
+#                                                                         #
+#   Instead of instilled you could use any string occuring in the         #
+#   output of `git config --local remote.origin.url`                      #
+#                                                                         #
+###########################################################################
+
+__git_no_auto_ident="no-auto-ident"
+
+__gitauthor(){
+    eval "_git_identities=( $(declare -p | awk -F '=' '{print $1}' | grep -oP 'git_ident_\K(.*)(?=_email)' | xargs) )"
+    _git_dir="$( git rev-parse --show-toplevel )"
+    if [ -d "$_git_dir" ]; then
+        if [ -f "$_git_dir/$__git_no_auto_ident" ]; then
+            exit 0
+        fi
+
+        for ident in ${_git_identities[@]}; do
+            out=$( git config --local remote.origin.url | grep $ident )
+            if [ ! -z $out ]; then
+                echo $ident
+                exit 0
+            fi
+        done
+        exit 0
+    fi
+    exit 1
+}
+
+git config --local remote.origin.url &> /dev/null
+if [ "$?" -eq 0 ]; then
+    ident=$( __gitauthor )
+    if [[ ! -z "${ident}" ]]; then
+        eval "gitu=\"\${git_ident_${ident}_name}\""
+        eval "gite=\"\${git_ident_${ident}_email}\""
+        export GIT_AUTHOR_NAME="${gitu}"
+        export GIT_AUTHOR_EMAIL="${gite}"
+        export GIT_COMMITTER_NAME="${gitu}"
+        export GIT_COMMITTER_EMAIL="${gite}"
+    fi
+else
+    unset GIT_AUTHOR_NAME
+    unset GIT_AUTHOR_EMAIL
+    unset GIT_COMMITTER_NAME
+    unset GIT_COMMITTER_EMAIL
+fi
+
+$@
