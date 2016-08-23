@@ -17,3 +17,4 @@
   l = log --all --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
   ll = log --all --stat --abbrev-commit
   p = log --all -p
+  credit = "!f() { git commit --amend --author \"$1 <$2>\" -C HEAD; }; f"
