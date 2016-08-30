@@ -76,3 +76,8 @@ alias ta='t attach -t '
 alias td='t detach'
 alias tm='t move-window'
 alias tms='tm -t'
+
+#--------------------
+# nmap
+alias psctcp='nmap -Pn'
+alias pscudp='nmap -sU'

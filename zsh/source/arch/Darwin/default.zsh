@@ -13,7 +13,7 @@ if [[ -d $HOME/.ssh/keys_auto ]]; then
         _loaded=$?
 
         if [ "$_loaded" -eq 1 ]; then
-            ssh-add -K "$HOME/.ssh/keys_auto/$k"
+            ssh-add -k "$HOME/.ssh/keys_auto/$k"
         fi
     done
 fi
@@ -31,4 +31,3 @@ alias ls='ls -G'
 
 alias o='open '
 alias tmp='cd $HOME/Downloads'
-
