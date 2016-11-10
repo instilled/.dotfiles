@@ -60,7 +60,7 @@ git_prompt_size () {
 }
 
 unpushed () {
-  if [[ "$(git rev-parse --git-dir 2> /dev/null)" ]]
+  if [ "$(git rev-parse --git-dir 2> /dev/null)" ]
   then
     sha=$(git rev-parse HEAD)
     out=$(git branch -r --contains $sha 2> /dev/null)
