@@ -56,7 +56,7 @@ Plugin 'lukaszb/vim-web-indent'
 Plugin 'othree/html5-syntax.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'rking/ag.vim'
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()
 
