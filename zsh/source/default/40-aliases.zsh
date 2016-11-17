@@ -10,6 +10,7 @@ alias dl='cd ~/Downloads'
 
 alias l='ls -lh'
 alias ll='ls -lha'
+alias grep='grep --color'
 alias f='grep -r'
 alias diff='grc diff'
 alias mk='mkdir -p'
