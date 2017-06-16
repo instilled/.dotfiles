@@ -12,16 +12,16 @@ if [ -z "$1" -a ! "$(brew doctor &> /dev/null)" ]; then
   exit 1
 fi
 
-taps=(
-  homebrew/binary
-  justincampbell/formulae
-  thoughtbot/formulae
-  homebrew/dupes
-)
-
-for tap in "${taps[@]}"; do
-  brew tap $tap
-done
+#taps=(
+#  homebrew/binary
+#  justincampbell/formulae
+#  thoughtbot/formulae
+#  homebrew/dupes
+#)
+#
+#for tap in "${taps[@]}"; do
+#  brew tap $tap
+#done
 
 formulae=(
   coreutils
@@ -41,8 +41,8 @@ formulae=(
   unzip
   zsh
   caskroom/cask/brew-cask
-  "emacs --with-cocoa --srgb"
-  reattach-to-user-namespace
+  #"emacs --with-cocoa --srgb"
+  #reattach-to-user-namespace
   cmake
   ctags
   tmux
@@ -52,9 +52,11 @@ formulae=(
   the_silver_searcher
   grc
   keybase
+  gradle
+  gdub
 )
 
-brew tap | grep "cask" > /dev/null || brew tap caskroom/homebrew-cask
+#brew tap | grep "cask" > /dev/null || brew tap caskroom/homebrew-cask
 
 for formula in "${formulae[@]}"; do
   brew install $formula || brew upgrade $formula
@@ -62,14 +64,14 @@ done
 
 # More casks
 # arq
-casks=(
-  iterm2
-  java
-  nvalt
-  skype
-  virtualbox
-  vagrant
-)
+#casks=(
+#  iterm2
+#  java
+#  nvalt
+#  skype
+#  virtualbox
+#  vagrant
+#)
 
 #for cask in "${casks[@]}"; do
 #  brew cask install $cask

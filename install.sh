@@ -11,10 +11,9 @@ cdate=`date +%Y%m%d%H%M%S`
 
 _repo="git@github.com:instilled/.dotfiles.git"
 
-if [ ! -d "/Applications/Xcode.app" ]; then
-    echo "Please install 'xcode' first!"
-    exit 1
-fi
+[ ! -d "/Applications/Xcode.app" ] \
+  && echo "Please install 'xcode' first!" \
+  exit 1
 
 echo "Hi there. I'm your dotfiles and will install myself at ~/.dotfiles."
 echo "This will install a bunch of tools such as GNU command line tools and"
@@ -41,7 +40,7 @@ echo "Installing brew"
 $dothome/brew.sh
 
 function bkp() {
-    echo "Baking up $HOME/$1 to $HOME/$1.bak.$cdate"
+    echo "Backing up previous $1 install: $HOME/$1 -> $HOME/$1.bak.$cdate"
     if [ -a" $HOME/$1" ]; then
         mv "$HOME/$1" "$HOME/$1.bak.$cdate"
     fi
@@ -94,7 +93,7 @@ ln -s "$ghome/gitconfig" "$HOME/.gitconfig"
 # Others
 echo
 echo "Copying fonts"
-cp -R $dothome'/fonts' "/Library/Fonts"
+cp $dothome/fonts/*.ttf "/Library/Fonts"
 
 echo
 echo "Done!"
