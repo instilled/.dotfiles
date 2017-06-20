@@ -54,6 +54,14 @@ alias gchb='g checkout -B'
 alias gm='g merge'
 alias gsa='g submodule add'
 
+
+#--------------------
+# Gradle
+alias gr='gw'
+alias grt='gr test'
+alias gra='gr buildAll'
+
+
 #--------------------
 # Docker related aliases
 alias d='docker'
