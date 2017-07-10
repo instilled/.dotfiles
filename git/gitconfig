@@ -15,6 +15,7 @@
   lf = log --all -p
   la = log --all --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
   credit = "!f() { git commit --amend --author \"$1 <$2>\" -C HEAD; }; f"
+  lt =  for-each-ref --format='%(refname:short) %(taggerdate) %(subject) %(body)' refs/tags
 
 [filter "lfs"]
   smudge = git-lfs smudge -- %f
