@@ -1,5 +1,7 @@
 #!/bin/zsh
-
+# To profile ZSH startup times uncomment the following line then start a new shell with `env ZSH_PROF= zsh -ic zprof`
+#zmodload zsh/zprof
+#
 # Load functions first
 fpath=($DOTFILES_HOME/zsh/functions $fpath)
 

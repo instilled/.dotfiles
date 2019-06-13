@@ -54,6 +54,7 @@ formulae=(
   keybase
   gradle
   gdub
+  nvm
 )
 
 #brew tap | grep "cask" > /dev/null || brew tap caskroom/homebrew-cask
