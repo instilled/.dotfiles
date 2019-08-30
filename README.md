@@ -13,8 +13,20 @@ You can install the dotfiles by typing
 
     source <(curl https://raw.githubusercontent.com/instilled/.dotfiles/master/install.sh)
 
-at your shell. This should install itself and all its dependencies. You should now configure
+in your shell. This should install itself and all its dependencies. You should now configure
 iTerms to use the correct color schema and font. This is a per profile setting.
+
+# Other Applications
+
+* 1Password
+* Amphetamine
+* Docker
+* Dropbox
+* Google Drive Sync
+* IntelliJ
+* iStats Menu
+* iTerm
+* XCode
 
 # Credits
 

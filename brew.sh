@@ -35,7 +35,7 @@ formulae=(
   less
   git
   git-lfs
-  libsass
+  #libsass
   openssh
   wget
   unzip
@@ -44,17 +44,17 @@ formulae=(
   #"emacs --with-cocoa --srgb"
   #reattach-to-user-namespace
   cmake
-  ctags
+  #ctags
   tmux
   watch
   maven
   mc
-  the_silver_searcher
+  #the_silver_searcher
   grc
-  keybase
-  gradle
+  #keybase
+  #gradle
   gdub
-  nvm
+  #nvm
 )
 
 #brew tap | grep "cask" > /dev/null || brew tap caskroom/homebrew-cask
