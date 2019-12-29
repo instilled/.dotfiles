@@ -6,14 +6,14 @@
 # added with the -K option.
 
 # Only add keys not yet loaded
-if [[ -d $HOME/.ssh/keys_auto ]]; then
-    for k in $(ls $HOME/.ssh/keys_auto)
+if [[ -d $HOME/.ssh/keys-auto ]]; then
+    for k in $(ls $HOME/.ssh/keys-auto)
     do
         _i=`ssh-add -l | grep "$k"`
         _loaded=$?
 
         if [ "$_loaded" -eq 1 ]; then
-            ssh-add -k "$HOME/.ssh/keys_auto/$k"
+            ssh-add -k "$HOME/.ssh/keys-auto/$k"
         fi
     done
 fi
@@ -23,11 +23,8 @@ export LSCOLORS='cxfxcxdxbxegedabagacad'
 
 PRMT_CLR=$PR_YELLOW
 
-#alias vagrant='ruby -r /Users/me/data/ext/vagrant/bundle/bundler/setup.rb /Users/me/data/ext/vagrant/bin/vagrant'
-
 ###>> Aliases
 alias readlink='greadlink'
 alias ls='ls -G'
 
 alias o='open '
-alias tmp='cd $HOME/Downloads'

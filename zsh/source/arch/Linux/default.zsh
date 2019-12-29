@@ -11,15 +11,11 @@
 #eval $(ssh-agent) # this would spawn a nef ssh-agent with every login
 eval $(keychain --eval --agents ssh -Q --quiet)
 
-if [[ -d $HOME/.ssh/keys_auto ]]; then
+if [[ -d $HOME/.ssh/keys-auto ]]; then
     # Delete & add keys
     ssh-add -D 1&> /dev/null
-    find "$HOME/.ssh/keys_auto" | grep keys_auto/ | xargs ssh-add 1&> /dev/null
+    find "$HOME/.ssh/keys-auto" | grep keys-auto/ | xargs ssh-add 1&> /dev/null
 fi
-
-# This makes cd'ing to frequently used dirs a swift!
-# Credits: http://robots.thoughtbot.com/cding-to-frequently-used-directories-in-zsh
-cdpath=($HOME /vagrant)
 
 # See colors in ~/.zsh/zshrc
 PRMT_CLR=$PR_BLUE

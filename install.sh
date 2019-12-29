@@ -9,13 +9,13 @@ thome="$dothome/tmux"
 ghome="$dothome/git"
 cdate=`date +%Y%m%d%H%M%S`
 
-_repo="git@github.com:instilled/.dotfiles.git"
+_repo="http://github.com/instilled/.dotfiles.git"
 
 [ ! -d "/Applications/Xcode.app" ] \
   && echo "Please install 'xcode' first!" \
   exit 1
 
-echo "Hi there. I'm your dotfiles and will install myself at ~/.dotfiles."
+echo "Hi there. I'm your dotfiles and will install myself at $dothome."
 echo "This will install a bunch of tools such as GNU command line tools and"
 echo "other nice stuff provided by brew (check 'brew.sh' for a full list)."
 echo "Finally I'll create a few symlinks in your home directory. Existing"
@@ -34,10 +34,16 @@ done
 # Clone the repo
 echo "Cloning .dotfiles and initializing submodules..."
 git clone $_repo "$dothome" &> /dev/null
+[ "$?" -ne 0 ] \
+  && echo "Error cloning .dotfiles to $dothome failed. Exiting installer." \
+  && exit 1
 (cd "$dothome" && git submodule update --init --recursive)
+[ "$?" -ne 0 ] \
+  && echo "Error updating .dotfiles submodules. Exiting installer." \
+  && exit 1
 
-echo "Installing brew"
-$dothome/brew.sh
+#echo "Installing brew"
+#$dothome/brew.sh
 
 function bkp() {
     echo "Backing up previous $1 install: $HOME/$1 -> $HOME/$1.bak.$cdate"
@@ -51,38 +57,18 @@ echo
 echo "Installing zsh... ~/.zsh[,rc,env]"
 bkp .zsh
 ln -s "$zhome" "$HOME/.zsh"
-
 bkp .zshrc
 ln -s ".zsh/zshrc" "$HOME/.zshrc"
-
 bkp .zshenv
 ln -s ".zsh/zshenv" "$HOME/.zshenv"
-
-# VIM
-echo
-echo "Installing vim... ~/.vim[,rc]"
-bkp .vim
-ln -s "$vhome" "$HOME/.vim"
-
-bkp .vimrc
-ln -s "$HOME/.vim/vimrc" "$HOME/.vimrc"
-
-(cd ~/.vim/bundle/YouCompleteMe && python ./install.py)
 
 # TMUX
 echo
 echo "Installing tmux... ~/.tmux[,.conf]"
 bkp .tmux
 ln -s "$thome" "$HOME/.tmux"
-
 bkp .tmux.conf
 ln -s ".tmux/tmux.conf" "$HOME/.tmux.conf"
-
-echo
-echo "Installing mc... ~/.mc"
-bkp .mc
-mkdir -p "$HOME/.config"
-ln -s "$dothome/mc" "$HOME/.config/mc"
 
 # Git
 echo
@@ -90,10 +76,14 @@ echo "Configuring git..."
 git config --global merge.tool vimdiff
 ln -s "$ghome/gitconfig" "$HOME/.gitconfig"
 
-# Others
+# VIM
 echo
-echo "Copying fonts"
-cp $dothome/fonts/*.ttf "/Library/Fonts"
+echo "Installing vim... ~/.vim[,rc]"
+bkp .vim
+ln -s "$vhome" "$HOME/.vim"
+bkp .vimrc
+ln -s "$HOME/.vim/vimrc" "$HOME/.vimrc"
+vim +PluginInstall +qall
 
 echo
 echo "Done!"

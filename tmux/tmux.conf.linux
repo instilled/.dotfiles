@@ -1,6 +1,5 @@
 # My tmux config
 
-
 set -g status-right "#[fg=black]@#H"
 set -g default-terminal "screen-256color"
 
@@ -37,10 +36,10 @@ set-option -g -q mouse on
 ## Copy-paste integration
 #set-option -g default-command "zsh"
 set-option -g default-shell "${SHELL}"
-set-option -g default-command      "reattach-to-user-namespace -l ${SHELL}"
-bind-key >  save-buffer $HOME/.tmux-buffer \; \
-    run 'reattach-to-user-namespace pbcopy < $HOME/.tmux-buffer' \; \
-    display-message "Copied to clipboard."
+#set-option -g default-command      "reattach-to-user-namespace -l ${SHELL}"
+#bind-key >  save-buffer $HOME/.tmux-buffer \; \
+#    run 'reattach-to-user-namespace pbcopy < $HOME/.tmux-buffer' \; \
+#    display-message "Copied to clipboard."
 
 ## -----------------------------------------------------------------------------
 # Key bindings
@@ -55,7 +54,7 @@ bind r source-file ~/.tmux.conf
 bind k kill-pane
 
 ## Selecting, copy & pasting
-bind ] run "pbpaste | tmux load-buffer - && tmux paste-buffer"
+#bind ] run "pbpaste | tmux load-buffer - && tmux paste-buffer"
 
 # Setup 'v' to begin selection as in Vim
 # Make sure 'Applications in terminal may access clipboard' option in iTerm2 is checked!
@@ -81,8 +80,8 @@ bind - split-window -v
 unbind '"'
 unbind %
 
-set -g prefix C-a
 unbind C-b
+set -g prefix C-a
 bind C-a send-prefix
 
 # Clear history on iTerm

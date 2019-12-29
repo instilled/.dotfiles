@@ -1,0 +1,12 @@
+install_pkgs=(vim
+wmctrl
+git
+tmux
+zsh
+tilda
+fonts-powerline
+python3-gpg
+openjdk-8-jdk
+keychain
+grc
+)

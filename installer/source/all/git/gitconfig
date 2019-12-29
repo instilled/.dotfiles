@@ -1,0 +1,24 @@
+[merge]
+  tool = vimdiff
+
+[core]
+  excludesfile = ~/.gitignore-global
+  pager = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less -r
+
+[push]
+  default = simple
+
+[alias]
+  # http://oli.jp/2012/git-powerup/
+  l = log --graph --first-parent --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
+  ln = log --all --stat --abbrev-commit
+  lf = log --all -p
+  la = log --all --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
+  credit = "!f() { git commit --amend --author \"$1 <$2>\" -C HEAD; }; f"
+  lt =  for-each-ref --format='%(refname:short) %(taggerdate) %(subject) %(body)' refs/tags
+
+[filter "lfs"]
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+  clean = git-lfs clean -- %f

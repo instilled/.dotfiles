@@ -1,0 +1,1 @@
+cdpath=($HOME/Projects $HOME)
