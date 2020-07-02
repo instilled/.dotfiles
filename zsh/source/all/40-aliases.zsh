@@ -75,12 +75,6 @@ alias dk='d kill'
 alias drm='d rm'
 
 #--------------------
-# Docker related aliases
-alias k='kubectl'
-alias kg='k get'
-alias kl='k logs'
-
-#--------------------
 # TMUX
 alias t='tmux '
 alias ts='t new -s '

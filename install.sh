@@ -33,8 +33,9 @@ done
 
 # Clone the repo
 echo "Cloning .dotfiles and initializing submodules..."
-git clone $_repo "$dothome" &> /dev/null
-[ "$?" -ne 0 ] \
+[ ! -d "$dothome" ] \
+  && git clone $_repo "$dothome" &> /dev/null \
+  && [ "$?" -ne 0 ] \
   && echo "Error cloning .dotfiles to $dothome failed. Exiting installer." \
   && exit 1
 (cd "$dothome" && git submodule update --init --recursive)

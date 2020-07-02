@@ -9,7 +9,7 @@ zstyle ':completion:*' completer _expand _complete _ignored _approximate
 # See https://gist.github.com/ctechols/ca1035271ad134841284#gistcomment-2308206
 autoload -Uz compinit
 for dump in ~/.zcompdump(N.mh+24); do
-  compinit
+  compinit -i
   compdump
 done
 compinit -C
