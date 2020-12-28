@@ -5,12 +5,14 @@ autoload -Uz gitident
 autoload -Uz zutil
 
 zstyle ':completion:*' completer _expand _complete _ignored _approximate
+setopt extendedglob
 
-# See https://gist.github.com/ctechols/ca1035271ad134841284#gistcomment-2308206
+
+# chmod -R 755 /usr/local/share/zsh
+# chown -R root:staff /usr/local/share/zsh
 autoload -Uz compinit
 for dump in ~/.zcompdump(N.mh+24); do
-  compinit -i
-  compdump
+  compinit -d
 done
 compinit -C
 

@@ -1,4 +1,5 @@
-#!/bin/zsh
+#zmodload zsh/zprof
+#https://github.com/locatee/locatee/pull/1726!/bin/zsh
 # To profile ZSH startup times uncomment the following line then start a new shell with `env ZSH_PROF= zsh -ic zprof`
 #zmodload zsh/zprof
 #
@@ -14,3 +15,4 @@ for lo in $load_order; do
     source $file
   done
 done
+#zprof
